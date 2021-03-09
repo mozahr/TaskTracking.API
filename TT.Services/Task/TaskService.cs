@@ -38,10 +38,22 @@ namespace TT.Services.Task
             if (Task == null)
                 throw new ArgumentNullException(nameof(Task));
 
+            Task.CreatedDate = DateTime.Now;
             _taskRepository.Insert(Task);
         }
 
+        /// <summary>
+        /// Updates the task
+        /// </summary>
+        /// <param name="task">Customer</param>
+        public virtual void UpdateCustomer(Core.Domain.Task task)
+        {
+            if (task == null)
+                throw new ArgumentNullException(nameof(task));
 
+            _taskRepository.Update(task);
+
+        }
         /// <summary>
         /// Delete a Task
         /// </summary>

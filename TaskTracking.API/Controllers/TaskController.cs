@@ -18,12 +18,38 @@ namespace TaskTracking.API.Controllers
             _taskService = taskService;
         }
 
-        [HttpGet]
-        public virtual IActionResult GetTasks()
+        [HttpGet("get")]
+        public virtual IActionResult Get()
         {
             var model = _taskService.GetTasks();
 
             return Ok(model);
+        }
+  
+        [HttpPost("insert")]
+        public virtual IActionResult insert(TT.Core.Domain.Task task)
+        {
+             _taskService.InsertTask(task);
+
+            return Ok(true);
+        }
+        [HttpPost("edit")]
+        public virtual IActionResult edit(TT.Core.Domain.Task task)
+        {
+            _taskService.UpdateCustomer(task);
+
+            return Ok(true);
+        }
+        [HttpGet("delete/{id:int}")]
+        public virtual IActionResult delete(int id)
+        {
+            var task = new TT.Core.Domain.Task
+            {
+                Id = id
+            };
+            _taskService.DeleteTask(task);
+
+            return Ok(true);
         }
     }
 }

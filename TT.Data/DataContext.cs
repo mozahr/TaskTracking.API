@@ -158,10 +158,7 @@ namespace TT.Data
             entityEntry.State = EntityState.Detached;
         }
 
-        public int SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
+ 
 
         #endregion
     }

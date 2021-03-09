@@ -9,5 +9,6 @@ namespace TT.Services.Task
         IList<Core.Domain.Task> GetTasks();
         void InsertTask(Core.Domain.Task Task);
         void DeleteTask(Core.Domain.Task Task);
+        void UpdateCustomer(Core.Domain.Task task);
     }
 }
